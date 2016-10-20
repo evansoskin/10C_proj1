@@ -58,7 +58,7 @@ class Hand {
 public:
 	// A vector of Cards
 	Hand();
-	//virtual ~Hand(){delete [] hand}
+	virtual ~Hand();
 
 	// You decide what functions you'll need...
 	string get_cards() const;
@@ -78,15 +78,17 @@ public:
 	// Constructor. 
 	//    Assigns initial amount of money
 	Player(int m);
-
+	virtual ~Player();
 	// You decide what functions you'll need...
 	void draw_card();
+	int bet(int amount);
+	void display_hand() const;
+	double hand_value() const;
 
 private:
 	int money;
 	// You decide what extra fields (if any) you'll need...
-	int num_cards;
-	Hand h;
+	Hand* h;
 };
 
 #endif

@@ -236,6 +236,13 @@ Hand::Hand()
 	hand.push_back(new Card());
 	num_cards = 1;
 }
+Hand::~Hand()
+{
+	for (auto i : hand)
+	{
+		delete i;
+	}
+}
 string Hand::get_cards() const
 {
 	string cards;
@@ -273,3 +280,33 @@ double Hand::hand_value() const
 Player class
 ************************************************* */
 // Implemente the member functions of the Player class here.
+Player::Player(int m)
+	: money(m)
+{
+	h = new Hand();
+}
+Player::~Player()
+{
+	delete h;
+}
+void Player::draw_card()
+{
+	h->add_card();
+}
+int Player::bet(int amount)
+{
+	if (amount < 0)
+		amount = 0;
+	if (amount > money)
+		amount = money;
+	money -= amount;
+	return amount;
+}
+void Player::display_hand() const
+{
+	cout<<h->get_cards();
+}
+double Player::hand_value() const
+{
+	return h->hand_value();
+}

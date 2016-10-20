@@ -1,6 +1,7 @@
 #include "cards.h"
 #include <cstdlib>
 #include <iostream>
+#include <vector>
 
 /*
 You might or might not need these two extra libraries
@@ -189,7 +190,36 @@ bool Card::operator < (Card card2) const {
 Hand class
 ************************************************* */
 // Implemente the member functions of the Hand class here.
+Hand::Hand()
+{
 
+	hand.push_back(new Card());
+	num_cards = 1;
+}
+string Hand::get_cards() const
+{
+	string cards;
+	for (size_t i = 0; i < num_cards; i++)
+	{
+		cards += hand[i]->get_english_rank();
+		cards += " of ";
+		cards += hand[i]->get_english_suit();
+		if (i != num_cards - 1)
+			cards += ", ";
+		else
+			cards += ".\n";
+	}
+	return cards;
+}
+void Hand::add_card()
+{
+	hand.push_back(new Card());
+	num_cards++;
+}
+int Hand::get_num_cards() const
+{
+	return num_cards;
+}
 
 
 /* *************************************************

@@ -24,6 +24,11 @@ int main()
 	cout << c->get_english_rank() << " of " << c->get_english_suit() << endl;
 	cout << c->get_spanish_rank() << " of " << c->get_spanish_suit() << endl;
 
+	Hand h;
+	cout << h.get_cards();
+	h.add_card();
+	cout << h.get_cards();
+
 	system("PAUSE");
 	return 0;
 }

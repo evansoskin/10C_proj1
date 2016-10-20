@@ -58,9 +58,14 @@ public:
 	Hand();
 
 	// You decide what functions you'll need...
+	string get_cards() const;
+	void add_card();
+	int get_num_cards() const;
 
 private:
 	// You decide what fields you'll need...
+	vector<Card*> hand;
+	int num_cards;
 };
 
 

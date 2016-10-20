@@ -28,6 +28,7 @@ int main()
 	cout << h.get_cards();
 	h.add_card();
 	cout << h.get_cards();
+	cout << h.hand_value() << endl;
 
 	system("PAUSE");
 	return 0;

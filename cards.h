@@ -46,6 +46,8 @@ public:
 	// Useful if you want to sort the cards.
 	bool operator < (Card card2) const;
 
+	double get_value() const;
+
 private:
 	suit_t suit;
 	rank_t rank;
@@ -56,11 +58,13 @@ class Hand {
 public:
 	// A vector of Cards
 	Hand();
+	//virtual ~Hand(){delete [] hand}
 
 	// You decide what functions you'll need...
 	string get_cards() const;
 	void add_card();
 	int get_num_cards() const;
+	double hand_value() const;
 
 private:
 	// You decide what fields you'll need...
@@ -76,10 +80,13 @@ public:
 	Player(int m);
 
 	// You decide what functions you'll need...
+	void draw_card();
 
 private:
 	int money;
 	// You decide what extra fields (if any) you'll need...
+	int num_cards;
+	Hand h;
 };
 
 #endif

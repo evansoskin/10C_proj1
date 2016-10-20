@@ -170,6 +170,46 @@ string Card::get_english_rank() const {
 	return rankName;
 }
 
+double Card::get_value() const
+{
+	double value = 0.0;
+	switch (rank)
+	{
+		case AS:
+			value = 1.0;
+			break;
+		case DOS:
+			value = 2.0;
+			break;
+		case TRES:
+			value = 3.0;
+			break;
+		case CUATRO:
+			value = 4.0;
+			break;
+		case CINCO:
+			value = 5.0;
+			break;
+		case SEIS:
+			value = 6.0;
+			break;
+		case SIETE:
+			value = 7.0;
+			break;
+		case SOTA:
+			value = 0.5;
+			break;
+		case CABALLO:
+			value = 0.5;
+			break;
+		case REY:
+			value = 0.5;
+			break;
+		default: break;
+	}
+	return value;
+}
+
 
 
 // Assigns a numerical value to card based on rank.
@@ -199,7 +239,7 @@ Hand::Hand()
 string Hand::get_cards() const
 {
 	string cards;
-	for (size_t i = 0; i < num_cards; i++)
+	for (auto i = 0; i < num_cards; i++)
 	{
 		cards += hand[i]->get_english_rank();
 		cards += " of ";
@@ -219,6 +259,13 @@ void Hand::add_card()
 int Hand::get_num_cards() const
 {
 	return num_cards;
+}
+double Hand::hand_value() const
+{
+	double value = 0.0;
+	for (auto i = 0; i < num_cards; i++)
+		value += hand[i]->get_value();
+	return value;
 }
 
 

@@ -17,7 +17,13 @@ using namespace std;
 
 
 // Stub for main
-int main() {
-	/* --STATEMENTS-- */
+int main()
+{
+	
+	Card* c = new Card();
+	cout << c->get_english_rank() << " of " << c->get_english_suit() << endl;
+	cout << c->get_spanish_rank() << " of " << c->get_spanish_suit() << endl;
+
+	system("PAUSE");
 	return 0;
 }

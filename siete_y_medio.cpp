@@ -30,6 +30,11 @@ int main()
 	p.display_hand();
 	cout << p.hand_value() << endl;
 
+<<<<<<< HEAD
 	system("PAUSE");
+=======
+	//adding comment to make classes branch different than master branch
+	system("PAUSE")
+>>>>>>> classes
 	return 0;
 }

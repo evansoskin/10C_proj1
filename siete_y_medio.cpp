@@ -30,6 +30,6 @@ int main()
 	p.display_hand();
 	cout << p.hand_value() << endl;
 
-	system("PAUSE")
+	system("PAUSE");
 	return 0;
 }
